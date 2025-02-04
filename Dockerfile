@@ -54,7 +54,7 @@ RUN npm install -g pnpm@9.4.0 && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy built artifacts and production dependencies from the builder stage
-COPY --from=build /app /app
+COPY --from=builder /app /app
     
 # Set the working directory
 WORKDIR /app

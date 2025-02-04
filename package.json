@@ -3,10 +3,10 @@
     "version": "0.0.1",
     "description": "",
     "type": "module",
-    "main": "src/agent/index.ts",
+    "main": "src/index.ts",
     "scripts": {
-        "start": "tsx src/agent/index.ts --character=characters/trump.character.json",
-        "dev": "tsx watch src/agent/index.ts",
+        "start": "tsx src/index.ts --character=characters/default.json",
+        "dev": "tsx watch src/index.ts",
         "build": "tsc",
         "type-check": "tsc --noEmit"
       },
