@@ -36,5 +36,10 @@
         "ts-jest": "^29.2.5",
         "ts-node": "10.9.2",
         "tsup": "8.3.5"
+    },
+    "pnpm": {
+        "overrides": {
+            "onnxruntime-node": "1.20.1"
+        }
     }
 }

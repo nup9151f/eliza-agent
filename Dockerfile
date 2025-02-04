@@ -1,3 +1,5 @@
+ARG AGENT_VERSION=master
+
 # Use a specific Node.js version for better reproducibility
 FROM node:23.3.0-slim AS builder
 
@@ -35,7 +37,8 @@ RUN ln -sf /usr/bin/python3 /usr/bin/python
 WORKDIR /app
 
 # Copy application code
-RUN git clone https://github.com/nup9151f/eliza-agent.git .
+RUN git clone https://github.com/nup9151f/eliza-agent.git . && \
+    git checkout ${AGENT_VERSION}
 
 # Install dependencies
 RUN pnpm install
