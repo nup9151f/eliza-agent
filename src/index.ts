@@ -774,11 +774,14 @@ const startAgents = async () => {
     let serverPort = Number.parseInt(settings.SERVER_PORT || "3000");
     const args = parseArguments();
     const charactersArg = args.characters || args.character;
-    let characters = [defaultCharacter];
 
-    if (charactersArg || hasValidRemoteUrls()) {
-        characters = await loadCharacters(charactersArg);
+    if (!charactersArg) {
+        elizaLogger.error("No character args");
+        process.exit(1);
     }
+    
+    let characters = await loadCharacters(charactersArg);
+
 
     // Normalize characters for injectable plugins
     characters = await Promise.all(characters.map(normalizeCharacter));
